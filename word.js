@@ -1,5 +1,4 @@
 // Word.js: Contains a constructor, Word that depends on the Letter constructor. 
-// This is used to create an object representing the current word the user is attempting to guess. 
 //Word depends on the Letter constructor. So, we need to require Letter so that we can use it in the Word.js file (this file).
 var Letter = require("./letter");
 
@@ -11,12 +10,12 @@ var Word = function(myWord) {
 	//This is an array of underscores representing the number of underscores needed for the random chosen word 
 	//This is based on the number of letters in the word.
 	this.underscores = [];
-	//After we get a random word from the word list, I think I need to use the split method to add the letters to the this.letters array.
+	//After  random word from the word list,  use the split method to add the letters to the this.letters array.
 	this.splitWord = function() {
 		this.letters = this.myWord.split("");
 		//Determine number of underscores needed based on length of this.letters array in the Word constructor.
 		numberUnderscoresNeeded = this.letters.length;
-		//Use the .join method to join each underscore that we pushed to the this.underscores array by a space.
+		//Use the .join method to join each underscore that pushed to the this.underscores array by a space.
 		console.log(this.underscores.join(" "));
 	}
 	this.generateLetters = function() {
@@ -27,6 +26,6 @@ var Word = function(myWord) {
 	}
 }
 
-//Export the Word constructor so that we can use/reference it in index.js.
+//Export the Word constructor as a reference in index.js.
 module.exports = Word;
 

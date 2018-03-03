@@ -4,10 +4,10 @@ var Word = require("./word.js");
 //Game requires inquirer npm package to prompt user to enter a letter.
 var inquirer = require("inquirer");
 
-//Game requires cli-color npm package to give the game some color.
+//Game requires cli-color npm package to give  color.
 var clc = require('cli-color');
 
-//Game requires figlet npm package to convert text to drawing.
+//Game requires figlet npm package to convert text into drawing.
 var figlet = require('figlet');
 
 //npm package used to determine if the value the user enters is actually a letter or not (form validation).
@@ -77,7 +77,7 @@ figlet("Hangman Game", function(err, data) {
     "You can exit the game at any time by pressing Ctrl + C on your keyboard." + "\r\n" +
     "===========================================================================================================" 
     console.log(gameTextColor(howToPlay));
- 	//Ask user if they are ready to play.
+ 	//Ask user -- ready to play?
     confirmStart();
 });
 
@@ -98,14 +98,14 @@ function confirmStart() {
 	];
 
 	inquirer.prompt(readyToStartGame).then(answers => {
-		//If the user confirms that they want to play, start game.
+		//If the user confirms to play, start game.
 		if (answers.readyToPlay){
 			console.log(gameTextColor("Great! Welcome, " + answers.playerName + ". Let's begin..."));
 			startGame();
 		}
 
 		else {
-			//If the user decides they don't want to play, exit game.
+			//If the user don't want to play, exit game.
 			console.log(gameTextColor("Good bye, " + answers.playerName + "! Come back soon."));
 			return;
 		}
@@ -190,11 +190,8 @@ function guessLetter(){
 				//Set userGuessedCorrectly to true.
 				userGuessedCorrectly = true;
 				someWord.underscores[i] = guess.letter.toUpperCase();
-				// someWord.underscores.join("");
-				// console.log(someWord.underscores);
 				//Increment the number of slots/underscores filled in with letters by 1.
 				slotsFilledIn++
-				//console.log("Number of slots remaining " + slotsFilledIn);
 			}
 		}
 		console.log(gameTextColor("WORD TO GUESS:"));
